@@ -16,4 +16,4 @@ for world in open(filename, 'r', encoding='utf-8'):
     russion_world.append(world)
 # Тут есть ещё проблема с utf-8
 
-print("ok, что-то ещё напишу... и!")
+print("ok, что-то ещё напишу... и! Да блин, что я неправильно делаю")
