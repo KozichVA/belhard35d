@@ -1,5 +1,5 @@
 # text = input("вводи текст эксперементируй ")
-text = "Мой дядя самых честных правил, когда не в шутку занемог..."
+text = "Мой дядя самых честных правил, когда не в шутку занемог ... заставил"
 print("функция \"len\" - сколько символов len(text) = ", len(text))
 input(">")
 print("функция \"split\", преобразует текст в список text.split(\" \") = \n", text.split(" "))
@@ -9,7 +9,11 @@ print("функция \"join\", список word (\" \").join(word) = ",(" ").j
 input(">")
 print("функция \"join\", текст text (\"-\").join(text) = ", ("-").join(text))
 search = input("ВНИМАНИЕ! Введи слово или символ, который будешь искать: ")
-print('ищем совпадени в тексте text.find(search,[start],[end]. результат = ', text.find(search))
-print('ищем совпадени в тексте text.rfind(search,[start],[end]. результат = ', text.rfind(search))
-
+print('ищем совпадени в тексте text.find(search,[start],[end]) результат = ', text.find(search))
+print('ищем совпадени в тексте text.rfind(search,[start],[end]) результат = ', text.rfind(search))
+print('сколько раз в тексте встречается text.count(search,[start],[end]) результат = ', text.count(search))
+print('делит текст на 3 части по заданому поиску text.partition(search) результат = ', text.partition(search))
+print('делит текст на 3 части по заданому поиску text.rpartition(search) результат = ', text.rpartition(search))
+input(">")
+print("замена чего-то в тексте .replace(seach, \"***\" результат = ", text.replace(search, "*****"))
 
