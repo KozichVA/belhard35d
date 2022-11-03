@@ -14,6 +14,4 @@ filename = "russian.txt"
 for world in open(filename, 'r'):
     russion_world.append(world)
 
-# print(russion_world[322])
-# print("".join(littera))
-# print(littera.join(" "))   !!!прикольная ошибка!!!
+print(russion_world[355])
