@@ -1,19 +1,21 @@
-# text = input("вводи текст эксперементируй ")
-text = "Мой дядя самых честных правил, когда не в шутку занемог ... заставил"
-print("функция \"len\" - сколько символов len(text) = ", len(text))
-input(">")
-print("функция \"split\", преобразует текст в список text.split(\" \") = \n", text.split(" "))
-input(">")
-word = text.split(" ")
-print("функция \"join\", список word (\" \").join(word) = ",(" ").join(word))
-input(">")
-print("функция \"join\", текст text (\"-\").join(text) = ", ("-").join(text))
-search = input("ВНИМАНИЕ! Введи слово или символ, который будешь искать: ")
-print('ищем совпадени в тексте text.find(search,[start],[end]) результат = ', text.find(search))
-print('ищем совпадени в тексте text.rfind(search,[start],[end]) результат = ', text.rfind(search))
-print('сколько раз в тексте встречается text.count(search,[start],[end]) результат = ', text.count(search))
-print('делит текст на 3 части по заданому поиску text.partition(search) результат = ', text.partition(search))
-print('делит текст на 3 части по заданому поиску text.rpartition(search) результат = ', text.rpartition(search))
-input(">")
-print("замена чего-то в тексте .replace(seach, \"***\" результат = ", text.replace(search, "*****"))
-
+# ЗАДАЧА 1
+# Пользователь вводит предложение, заменить все пробелы на "-" 2-мя способами
+text = input("Напишите предложение: ")
+print("убираем пробелы, способ 1 (.replace). \n Результат: ", text.replace(" ",""))
+print("убираем пробелы, способ 2 (join\split \n Результат:", ("").join(text.split(" ")))
+# ЗАДАЧА 2
+# Пользователь вводит 3 числа, найти среднее арифмитическое с точность 3
+medium = input("Введи три числа, через пробел: ").split(" ")
+itogo = (int(medium[0]) + int(medium[1]) + int(medium[2]))/3
+print("среднее арифмитическое с точность 3 = ", itogo)
+# ЗАДАЧА 3
+# Пользователь вводит Имя, Возраст и Город, сформировать
+# приветственное сообщение путем форматирования 3-мя способами
+name = input("Введи имя ")
+age =  input("Введи возраст ")
+city = input("Введи город ")
+print(f"{name.capitalize()}, я тебя найду! Тебе всего {age} лет и ты живёшь в {city.capitalize()}е")
+print("%()S, я тебя найду! Тебе всего %d лет и ты живёшь в %dе" % (name.capitalize(), age, city.capitalize()))
+print("{}, я тебя найду! Тебе всего {} лет и ты живёшь в {}е".format(name.capitalize(), age, city.capitalize()))
+# ЗАДАЧА 4
+# Пользователь вводит 3 числа, сказать сколько из них положительных и сколько отрицательных
