@@ -1,6 +1,9 @@
 text = input("Введите слово: ")
 text = text.replace(" ", "").lower()
 index = len(text)
+Littera = list(text)
+print(f"Ваше слово состоит из {index} букв: {Littera}")
+
 littera = []
 i = 0
 while i != index:
