@@ -1,22 +1,24 @@
+#Получаем список littera из букв слова введёного пользователем
 text = input("Введите слово: ")
 text = text.replace(" ", "").lower()
 index = len(text)
-Littera = list(text)
-print(f"Ваше слово состоит из {index} букв: {Littera}")
-
-littera = []
-i = 0
-while i != index:
-    for Letter in text[i]:
-        i += 1
-        littera.append(Letter)
+littera = list(text)
 print(f"Ваше слово состоит из {index} букв: {littera}")
 
-russion_world = []
+#Получаем список russion_world из слов из файла со словами
+russion_word = []
 filename = "russian.txt"
-for world in open(filename, 'r'):
-    russion_world.append(world)
+for word in open(filename, 'r'):
+        russion_word.append(word.replace("\n", ""))
 
-# print(russion_world[322])
-# print("".join(littera))
-# print(littera.join(" "))   !!!прикольная ошибка!!!
+#Сам не понимаю, что тут происходит
+for num in range(len(russion_word)):
+    letter = list(russion_word[num])
+
+    proverka = []
+    for i in range(len(letter)):
+        proverka.append(letter[i] in littera)
+    word_control = False in proverka
+
+    if word_control == False:
+        print(russion_word[num])
