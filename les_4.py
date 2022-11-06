@@ -10,7 +10,7 @@ print("Результат: ", degree_two)
 # буквы в текст введенный с клавиатуры
 text = list(input('Введите текст: ').replace(' ', ''))
 text_control = list(text)
-letter_control = {"Кол-во букв": "значение" }
+letter_control = {"буква": "количество"}
 for i in range(len(text_control)):
     num = text.count(text_control[i])
     letter_control[text_control[i]] = num
@@ -20,12 +20,29 @@ print(letter_control)
 # Заполнить словарь где ключами будут выступать числа от 0 до n, а
 # значениями вложенный словарь с ключами "name" и "email", а значения
 # для этих ключей будут браться с клавиатуры
+
 print('\nПытка с заполнением адресной книги начинается...')
-book = {'имя': 'почта'}
-strange_book = {'номер': book}
+book = {'имф': 'e-mail'}
+strange_book = {'номер': {'имя': 'e-mail'}}
 for i in range(int(n)):
-    name = input(f"Впишите имя {i}: ")
-    email = input(f"Впишите e-mail {i}: ")
+    name = input(f"Впишите имя {i + 1}: ")
+    email = input(f"Впишите e-mail {i + 1}: ")
     book[name] = email
-    strange_book[i] = book
+    strange_book[i] = book.copy()
+    book.clear()
 print(strange_book)
+print(strange_book['номер'])
+
+# print('\nПытка с заполнением адресной книги начинается...')
+# Name =[]
+# Email = []
+# strange_book = {'номер': 'словарь'}
+# for i in range(int(n)):
+#     name = input(f"Впишите имя {i + 1}: ")
+#     email = input(f"Впишите e-mail {i + 1}: ")
+#     Name.append(name)
+#     Email.append(email)
+#     strange_book[i] = dict(zip(Name, Email))
+#     Name.clear()
+#     Email.clear()
+# print(strange_book)
