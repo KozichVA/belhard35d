@@ -1,8 +1,8 @@
 # Заполнить список степенями числа 2 (от 2^1 до 2^n).
 n = input("введите n (используется в 1-ом и 3-ем задании): ")
 degree_two = []
-for i in range(int(n)):
-    degree_two.append(2 ** i)
+for i in range(int(n+1)):
+    degree_two.append(2 ** (i))
 print("Результат: ", degree_two)
 
 # Без использования collections, написать программу, которая будет
@@ -22,7 +22,7 @@ print(letter_control)
 # для этих ключей будут браться с клавиатуры
 
 print('\nПытка с заполнением адресной книги начинается...')
-book = {'имф': 'e-mail'}
+book = {'имя': 'e-mail'}
 strange_book = {'номер': {'имя': 'e-mail'}}
 for i in range(int(n)):
     name = input(f"Впишите имя {i + 1}: ")
