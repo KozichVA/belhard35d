@@ -58,6 +58,8 @@ print(f'Cделаем вычисления над числами k ={k} и m = {
 calculate(k,m)
 
 # **Вывести четные числа от 2 до N по 5 в строку
+print(f'\n\nВывести четные числа от 2 до N={n} по {conclusion} в строку')
+input('>')
 multiplase =[]
 for n in range(n+1):
     if n == 0:
