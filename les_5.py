@@ -9,7 +9,7 @@ except:
     m = int(input('введите m :'))
     k = int(input('введите k :'))
 
-print('первые N цисел кратные M и больше K:')
+print('Первые N цисел кратные M и больше K:')
 multiplase = []
 if n % m == 0 and n > k:
     multiplase.append(n)
@@ -19,9 +19,8 @@ while n :
         multiplase.append(n)
 multiplase.reverse()
 
-print('все значения в одну строку:\n',multiplase)
-conclusion = 5
-# int(input('сколько значений в строке выводить? '))
+print('Все значения в одну строку:\n',multiplase)
+conclusion = int(input('Сколько значений в строке выводить? '))
 
 Multiplase = []
 while len(multiplase):
@@ -30,7 +29,8 @@ while len(multiplase):
         break
     else:
         for i in range(conclusion) :
-            Multiplase.append(multiplase.pop())
+            Multiplase.append(multiplase.pop(0))
+            Multiplase = sorted(Multiplase)
         print(Multiplase)
         Multiplase.clear()
 
