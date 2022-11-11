@@ -29,7 +29,7 @@ except:
 
 print('Первые N цисел кратные M и больше K:')
 multiplase = []
-for n in range(n+1):
+for n in range(k, n+1):
     if n % m == 0 and n > k:
         multiplase.append(n)
 
