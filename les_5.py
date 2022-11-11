@@ -61,16 +61,16 @@ calculate(k,m)
 print(f'\n\nВывести четные числа от 2 до N={n} по {conclusion} в строку')
 input('>')
 multiplase =[]
-for n in range(n+1):
-    if n == 0:
-        pass
-    elif not n % 2:
+for n in range(1, n+1):
+    # if n == 0:
+    #     pass
+    if not n % 2:
         multiplase.append(n)
 
 how_many = len(multiplase) // conclusion
 if len(multiplase) % conclusion:
-    for i in range(how_many + 2):
+    for i in range(1, how_many + 2):
         print(multiplase[conclusion*(i-1): conclusion * i])
 else:
-    for i in range(how_many + 1):
+    for i in range(1, how_many + 1):
         print(multiplase[conclusion * (i - 1): conclusion * i])
