@@ -65,23 +65,22 @@
 def two(a):
         b = ''
         while a > 0:
-                b += str(a % 2)
+                b = str(a % 2) + b
                 a = a // 2
         return b
 
 def ten (a):
         b = 0
         a = list(a)
-        print(a)
-        a = list(map(lambda x: x != 1, a))
-        print(a)
+        a = list(map(lambda x: x == '1', a))
+        a = a[::-1]
+
         for i in range(len(a)):
-                b += (a[i]* 2 ** i)
-        return b
+                b += a[i] * (2 ** i)
+                return b
         # for i in range(len(a)):
 
 print(two(int(input('Введи число: '))))
-
 print(ten(input('введи 1 и 0: ')))
 
 
