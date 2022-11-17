@@ -18,8 +18,8 @@
 #         start('Ввели не верно, должно быть так: \"e3\".')
 #     elif int(y) > 8:
 #         start('Ввели не верно, на шахмотной доске 8 клеток')
-#     # elif doska.get(x, False):
-#         # start('Ввели не верно, нет такой буквы. Используйте: a, b, c, d, e, f, g, h')
+ elif doska.get(x, False):
+          start('Ввели не верно, нет такой буквы. Используйте: a, b, c, d, e, f, g, h')
 #     else:
 #         return x, int(y)
 #
@@ -33,7 +33,7 @@
 #     final_x = key[x - 3]
 #     final_y = y + 1
 #
-# doska = dict(zip(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], (i for i in range(1, 9))))
+ doska = dict(zip(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], (i for i in range(1, 9))))
 # print(horse())
 #
 #
@@ -51,42 +51,42 @@
 # сумму в копейках, необходимо рассчитать сколько минимальное количество монет
 # номиналом 1/5/10/25 необходимо чтобы составить данную сумму. Прим. 66 = 25 + 25 + 10 + 5
 # + 1 ответ 5 монет
-i25 = 0
-i10 = 0
-i5 = 0
-i1 = 0
-mony = int(input('перевод в монеты: '))
-while mony != 0:
-    if mony >= 25:
-        mony = mony - 25
-        i25 += 1
-    elif mony >= 10:
-        mony = mony - 10
-        i10 += 1
-    elif mony >= 5:
-        mony = mony - 5
-        i5 += 1
-    elif mony >= 1:
-        mony = mony - 1
-        i1 += 1
-print(f'''{i25} - монет по 25 копеек
-{i10} - монет по 10 копеек
-{i5} - монет по 5 копеек
-{i1} - монет по 1 копейке''')
+# i25 = 0
+# i10 = 0
+# i5 = 0
+# i1 = 0
+# mony = int(input('перевод в монеты: '))
+# while mony != 0:
+#     if mony >= 25:
+#         mony = mony - 25
+#         i25 += 1
+#     elif mony >= 10:
+#         mony = mony - 10
+#         i10 += 1
+#     elif mony >= 5:
+#         mony = mony - 5
+#         i5 += 1
+#     elif mony >= 1:
+#         mony = mony - 1
+#         i1 += 1
+# print(f'''{i25} - монет по 25 копеек
+# {i10} - монет по 10 копеек
+# {i5} - монет по 5 копеек
+# {i1} - монет по 1 копейке''')
 
 
 
 # 3. Написать функцию pow, которая принимает число А и число Б, необходимо с помощью
 # рекурсии возвести число А в степень Б
-def mulityplay(a,b,c = 1):
-    c *= a
-    b -= 1
-    if b:
-        return mulityplay(a, b, c)
-    else:
-        return c
-
-print(mulityplay(int(input('введи А: ')), int(input('введи Б: '))))
+# def mulityplay(a,b,c = 1):
+#     c *= a
+#     b -= 1
+#     if b:
+#         return mulityplay(a, b, c)
+#     else:
+#         return c
+#
+# print(mulityplay(int(input('введи А: ')), int(input('введи Б: '))))
 
 # 4. Петя перешёл в другую школу. На уроке физкультуры ему понадобилось определить своё
 # место в строю. Помогите ему это сделать. Программа получает на вход невозрастающую
@@ -110,17 +110,38 @@ print(mulityplay(int(input('введи А: ')), int(input('введи Б: '))))
 #     elif spisok.count(petia) > 1 and spisok[i] == petia:
 #         print(f'Петя, становись перед {i}-ым, вы одного роста')
 
-spisok = [192, 160, 149, 171, 120, 200, 180, 167, 153, 185]
-petia = int((input('рост Пети: ')))
-spisok.sort(reverse = True)
-print(spisok)
+# spisok = [192, 160, 149, 171, 120, 200, 180, 167, 153, 185]
+# petia = int((input('рост Пети: ')))
+# spisok.sort(reverse = True)
+# print(spisok)
+#
+# for i in range(len(spisok)):
+#     if spisok[i] == petia and i == 0:
+#         print('Петя, ты самый высокий')
+#     elif petia < spisok[i] and i == len(spisok) - 1:
+#         print('Иди в конец, Петя!')
+#     elif spisok[i] > petia and spisok[i+1] < petia:
+#         print(f'Петя, становись между {i+1}-ым и {i + 2}-ым')
+#     elif spisok[i] == petia:
+#         print(f'Петя, становись перед {i+1}-ым, вы одного роста')
 
-for i in range(len(spisok)):
-    if spisok[i] == petia and i == 0:
-        print('Петя, ты самый высокий')
-    elif petia < spisok[i] and i == len(spisok) - 1:
-        print('Иди в конец, Петя!')
-    elif spisok[i] > petia and spisok[i+1] < petia:
-        print(f'Петя, становись между {i+1}-ым и {i + 2}-ым')
-    elif spisok[i] == petia:
-        print(f'Петя, становись перед {i+1}-ым, вы одного роста')
+def pro(formula):
+    str(formula)
+    for i in range(len(formula)):
+        if not i % 2 and formula[i].isalpha():
+            return i
+
+data = {}
+formula = 'C2Н5OH'
+# formula += '1' if formula[-1].isalpha() else ''
+def ape(i,formula):
+    list(formula)
+    formula[i] = 1
+    str(formula)
+    return formula
+
+i = pro(formula)
+print(i)
+formula = ape(i,formula)
+print(formula)
+
