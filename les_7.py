@@ -197,23 +197,23 @@ print(horse_step())
 #     elif spisok[i] == petia:
 #         print(f'Петя, становись перед {i+1}-ым, вы одного роста')
 
-# def pro(formula):
-#     str(formula)
-#     for i in range(len(formula)):
-#         if not i % 2 and formula[i].isalpha():
-#             return i
 #
-# data = {}
-# formula = 'C2Н5OH'
-# # formula += '1' if formula[-1].isalpha() else ''
-# def ape(i,formula):
-#     list(formula)
-#     formula[i] = 1
-#     str(formula)
-#     return formula
-#
-# i = pro(formula)
-# print(i)
-# formula = ape(i,formula)
-# print(formula)
+data = {}
+formula = 'C2H5OHC4'
+formula += '1' if formula[-1].isalpha() else ''
+for i in range(len(formula)):
+    if formula[i].isalpha():
+        if formula[i + 1].isdigit() and formula[i] in data:
+            data[formula[i]] += int(formula[i + 1])
+            print(i, data)
+        elif formula[i + 1].isdigit() and not formula[i] in data:
+            data[formula[i]] = int(formula[i + 1])
+            print(i, data)
+        elif formula[i + 1].isalpha() and formula[i] in data:
+            data[formula[i]] = 1 + int(data[formula[i]])
+            print(i, data)
+        elif formula[i + 1].isalpha() and not formula[i] in data:
+            data[formula[i]] = 1
+            print(i, data)
 
+print(data)
