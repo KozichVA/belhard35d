@@ -1,199 +1,147 @@
-def decimal_to_binary(decimal):
-    binary = ''
-    while decimal > 0:
-        binary = str(decimal % 2) + binary
-        decimal //= 2
-    return binary
-
-
-def binary_to_decimal(binary):
-    decimal = 0
-    for i in binary[::-1]:
-        decimal += int(i)
-        decimal *= 2
-    return decimal
-
-
-def binary_to_decimal2(binary):
-    decimal = 0
-    binary = binary[::-1]
-    for i in range(len(binary)):
-        if binary[i] == '1':
-            decimal += 2 ** i
-    return decimal
-
-
-print(binary_to_decimal2(binary=decimal_to_binary(decimal=18)))
+# class User:
 #
+#     role: str = 'user'
 #
-# morse = {
-#     'a': '•—', 'b': '—•••', 'c': '—•—•', 'd': '—••', 'e': '•', 'f': '••—•',
-#     'g': '——•', 'h': '••••', 'i': '••', 'j': '•———', 'k': '—•—', 'l': '•—••',
-#     'm': '——', 'n': '—•', 'o': '———', 'p': '•——•', 'q': '——•—', 'r': '•—•',
-#     's': '•••', 't': '—', 'u': '••—', 'v': '•••—', 'w': '•——', 'x': '—••—',
-#     'y': '—•——', 'z': '——••'}
+#     def __init__(self, name: str, age: int) -> None:
+#         self.age = age
+#         self.first_name: str = name.title()
+#         self.i = -1
 #
+#     def info(self) -> str:
+#         return f'Name: {self.first_name} Role: {User.role}'
 #
-# def text_to_morse(text):
-#     global morse
-#     result = ''
-#     text = text.lower()
-#     for i in text:
-#         if i in morse:
-#             result += morse[i] + ' '
-#         elif i == ' ':
-#             result += '  '
-#     return result
+#     def __str__(self) -> str:
+#         return f'Name: {self.first_name} Role: {User.role}'
 #
+#     def __int__(self) -> int:
+#         return self.age
 #
-# def morse_to_text(morse_text):
-#     global morse
-#     morse_text = morse_text.replace('   ', ' | ').split()
-#     text = ''
-#     for i in morse_text:
-#         if i == '|':
-#             text += ' '
+#     def __bool__(self) -> bool:
+#         return self.role == 'user'
+#
+#     @classmethod
+#     def change_role(cls, new_role: str) -> None:
+#         cls.role = new_role.lower()
+#
+#     @staticmethod
+#     def multiply(a: int, b: int) -> int:
+#         return a * b
+#
+#     def __add__(self, other):
+#         if isinstance(other, int):
+#             self.age += other
+#             return self.age
+#         elif isinstance(other, User):
+#             return self.age + other.age
 #         else:
-#             for key, val in morse.items():
-#                 if i == val:
-#                     text += key
-#                     break
-#     return text
+#             raise TypeError
 #
+#     def __radd__(self, other):
+#         return self.__add__(other=other)
 #
-# print(morse_to_text(text_to_morse(text='Hello world')))
+#     def __eq__(self, other) -> bool:
+#         return self.age == other.age
 #
+#     def __ne__(self, other) -> bool:
+#         return self.age != other.age
 #
-# def list_offset(lst, n):
-#     n -= len(lst) * (n // len(lst))
-#     lst = lst[-n:] + lst[:-n]
-#     return lst
+#     def __len__(self) -> int:
+#         return self.age * 2
 #
+#     def __iter__(self) -> object:
+#         return self
 #
-# print(list_offset([1, 2, 3, 4, 5, 6, 7], -9))
-#
-#
-# lst = [2, 3, 4, 5, 'fghj', True, [], None, 'dfgh', 'fgh']
-# # var 1
-# # lst = list(filter(lambda x: isinstance(x, str), lst))
-# # print(lst)
-# # var 2
-# i = 0
-# while i < len(lst):
-#     if not isinstance(lst[i], str):
-#         del lst[i]
-#     else:
-#         i += 1
-# print(lst)
-#
-# numbers = [1, 2, 3, 4, 5, 6, 7]
-#
-#
-# def my_reversed(lst):
-#     for i in range(len(lst) // 2):
-#         j = len(lst) - 1 - i  # индекс элемента с противоположной стороны
-#         lst[i], lst[j] = lst[j], lst[i]
-#         # lst[i], lst[~i] = lst[~i], lst[i]
-#     return lst
-#
-#
-# print(my_reversed(numbers))
-#
-# numbers = [2, 6, 3, 4, 3, 3, 5, 6, 8, 2, 34, 6, 4]
-#
-#
-# def my_sort(numbers):
-#     # result = []
-#     # for i in range(len(numbers)):
-#     #     if numbers[i] % 2:
-#     #         result.append(numbers[i])
-#     #     else:
-#     #         result.insert(0, numbers[i])
-#     # return result
-#     # for i in range(len(numbers)):
-#     #     if numbers[i] % 2 == 0:
-#     #         numbers.insert(0, numbers.pop(i))
-#     # return numbers
-#     numbers = list(filter(lambda x: not x % 2, numbers)) + list(filter(lambda x: x % 2, numbers))
-#     return numbers
-#
-#
-# print(my_sort(numbers))
-#
-#
-# def sum_neighbor(numbers):
-#     result = []
-#     for i in range(len(numbers)):
-#         if i < len(numbers) - 1:
-#             result.append(numbers[i-1] + numbers[i+1])
+#     def __next__(self) -> str:
+#         if self.i <= self.age:
+#             self.i += 1
+#             return str(self.i)
 #         else:
-#             result.append(numbers[i-1] + numbers[0])
-#     return result
+#             raise StopIteration
+
+
+# user1 = User(name='vasya', age=35)
+# new_age = 2 + user1
+# print(user1.age)
+# user1.last_name = 'pupkin'
+# print(user1.last_name)
+# user2 = User(name='petya', age=24)
+# print(user2 == user1)
+# print(len(user1))
+# user3 = User(name='masha')
+# print(user1.info())
+# print(user3.info())
+# print(user2.last_name)
+# User.change_role(new_role='admin')
+# print(User.role)
+# print(User.multiply(4, 5))
+# for j in user1:
+#     print(j)
+
+# Написать класс Button, конструктор принимает обязательный атрибут text: str
+# И не обязательный атрибут request_contact: bool (по умолчанию False)
+# реализовать метод объекта dict() возвращающий словарь в формате
+# {'text': self.text, 'request_contact': self.request_contact}
+
+# Написать класс Keyboard, конструктор принимает атрибут keyboard - список списков экземпляров
+# Button (обязательна проверка на структуру)
+# написать метод serialize возвращающий разметку клавиатуры в виде списка списков словарей
+# написать метод insert принимающий список классов Button и добавляющий этот список в атрибут keyboard в конец
+
+#
+# class Button:
+#     """
+#     Кнопка для клавиатуры
+#     """
+#
+#     def __init__(self, text: str, request_contact: bool = False) -> None:
+#         self.request_contact = request_contact
+#         self.text = text
+#
+#     def dict(self) -> dict:
+#         return {'text': self.text, 'request_contact': self.request_contact}
+
+
+# class Keyboard:
+#
+#     def __init__(self, keyboard: list[list[Button]]) -> None:
+#         if not isinstance(keyboard, list):
+#             raise ValueError('argument `keyboard` must be list')
+#         for line in keyboard:
+#             if not isinstance(line, list):
+#                 raise ValueError
+#             for button in line:
+#                 if not isinstance(button, Button):
+#                     raise ValueError
+#         self.keyboard = keyboard
+#
+#     def serialize(self) -> list[list[dict]]:
+#         from copy import deepcopy
+#         keyboard = deepcopy(self.keyboard)
+#         for j in range(len(keyboard)):
+#             for i in range(len(keyboard[j])):
+#                 keyboard[j][i] = keyboard[j][i].dict()
+#         return keyboard
+#
+#     def insert(self, keyboard: list[Button]):
+#         if not isinstance(keyboard, list):
+#             raise ValueError
+#         for button in keyboard:
+#             if not isinstance(button, Button):
+#                 raise ValueError
+#         self.keyboard.append(keyboard)
 #
 #
-# numbers = [1, 2, 3, 4, 5, 6, 7]
-# print(sum_neighbor(numbers))
+# buttons = [Button(text=text) for text in ('hello', 'python', 'world')]
+# buttons = [[buttons[0], buttons[1]], [buttons[2]]]
+# keyboard = Keyboard(keyboard=buttons)
+# print(keyboard.serialize())
+
+
+# def multiply(a: int, b: int) -> int:
+#     """Произведение двух чисел
 #
-#
-# countries = {
-#     'телемелитрямдия': ['нарния'],
-#     'россия': ['москва', 'питер'],
-#     'беларусь': ['минск', 'могилев', 'гомель']
-# }
-#
-#
-# def find_country(city):
-#     global countries
-#     for country, cities in countries.items():
-#         if city.lower() in cities:
-#             return country
-#     return 'страна не найдена'
-#
-#
-# print(find_country('могилев'))
-#
-#
-# users = {
-#     1: {
-#         'name': 'alex',
-#         'email': 'alex@gmail.com'
-#     },
-#     2: {
-#         'name': 'pavel',
-#         'email': ''
-#     },
-#     3: {
-#         'name': 'masha'
-#     }
-# }
-#
-# for user in users.values():
-#     # var 1
-#     # if 'email' not in user:
-#     #     print(user['name'])
-#     # elif user['email'] == '':
-#     #     print(user['name'])
-#
-#     # var2
-#     if not user.get('email'):
-#         print(user.get('name'))
-#
-#
-# ______________________________________________________________________________________________________________
-# Данна сумма вклада и процент по вкладу,
-# сказать через сколько лет суммма вклада увеличиться в двое.
-# (стафка рефинансирования)
-#
-# deposit = float(input('сумма вклада: '))
-# n = float(input('процент: ')) / 100
-# years = 0
-# b = deposit * 2
-# while deposit < b:
-#     deposit *= (1 + n)
-#     years += 1
-# print(f'за {years} лет на вкладе будет {deposit.__round__()} $')
-#
-# formula = list(input('введи формулу: '))
-#
-#
-#
+#     :param a: Первое число произведения
+#     :param b: Второе число произведения
+#     :return: Результат произведения
+#     """
+#     return a * b
