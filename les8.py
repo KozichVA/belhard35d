@@ -76,3 +76,47 @@ print(AC.get_square())
 # Написать метод average — возвращающий среднее арифметическое между всеми числами
 # Написать метод max_count — возвращающий число из списка, которое чаще встречается,
 # если таких чисел несколько, вывести среднее арифметическое среди таких чисел
+
+class Number:
+    suma = 0
+    def __init__(self, numbers: list[int]):
+        self.num = numbers
+
+    def get_average(self) -> float:
+        for i in range(len(self.num)):
+            self.suma += self.num[i]
+        self.suma = self.suma / i
+        return f'\nсреднее арифметическое = {self.suma}'
+
+    def max_count(self):
+        self.how_many = 1   #сколько чисел в списке имеет одинаковое количество повторений
+        self.max = 1        #наибольшее количество повторений i-ого числа
+        print('т.к. в начале ничего не делаем всегда, со старта нужно присвоить какой-то переменной num[0] ')
+        for i in range(len(self.num)):
+            if self.num.count(i) == self.max:
+                self.how_many += 1
+                print(f'на {i +1 }-ой складывам i-e числа а делить будем на {self.how_many}, но это за переделами цикла')
+            elif self.num.count(i) > self.max:
+                self.max += 1
+                self.how_many = 1
+                print(f'''на {i +1 }-ой удаляем сумму чисел и присваем новое i-ое значение = {self.num[i]} + обновляем max,''')
+
+            else:
+                print(f'на {i +1 }-ой ничего не делаем')
+
+
+
+        #     self.max = self.num.count(i)
+        #     if self.max >= self.repetition:
+        #         self.repetition = self.max
+        #         rezalt = self.num[i]
+        #         print(f'{rezalt} на {i}-ом шаге')
+        #         # if self.max == self.repetition:
+        #         #     self.how_many += 1
+        #         #     rezalt += self.num[i]
+        #         #     rezalt = rezalt / self.how_many
+        #         #     print(f'аримитическое {rezalt} на {i}-ом шаге')
+        # return rezalt
+
+print(Number([1, 2 ,3]).get_average(), end = '\n\n')
+print(Number([1, 2, 3, 4, 5, 1]).max_count())
