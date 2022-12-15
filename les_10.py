@@ -1,12 +1,16 @@
+async def multiplay(a, b):
+    return a * b
+
+if __name__ == '__main__':
 # 1. Дан многострочный файл txt
 # а) разбить файл на N(вводится с клавиатуры) файлов построчно
 # б) разбить файл на несколько файлов по N строк
-N = int(input('N = '))
-# filename = 'Onegin.txt'
-with open('Onegin.txt', 'r', encoding= 'utf-8') as file:
-    lines = [line.strip() for line in file]
+    N = int(input('N = '))
+    # filename = 'Onegin.txt'
+    with open('Onegin.txt', 'r', encoding= 'utf-8') as file:
+        lines = [line.strip() for line in file]
 
-print(lines)
+    print(lines)
 
 # 2. В файле записано стихотворение. Выведите его на экран, а также
 # укажите, каких слов в нем больше: начинающихся на гласную или на
@@ -42,3 +46,4 @@ print(lines)
 # ответ: 00011111 00010110 00011101 00010000 00001010 00000011
 # А теперь принцип шифра, необходимо сравнить каждый бит, если биты
 # совпали, то на выходе получаем 0, если не совпали - 1
+
